@@ -11,7 +11,6 @@ namespace regularExpressions
     {
         static void Main(string[] args)
         {
-
             string userName = nameValid();
             string userEmail = emailValid();
             string userPhone = phoneValid();
@@ -22,46 +21,57 @@ namespace regularExpressions
             Console.WriteLine("Please enter your name");
             string userName = Console.ReadLine();
 
-            while (!Regex.IsMatch(userName, @"^[A-Z]+[A-z]{2,30}$"))
+            if (!Regex.IsMatch(userName, @"^[A-Z]+[A-z]{2,30}$"))
             {
                 Console.WriteLine("I'm sorry, this is not a valid name");
-                userName = Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Name is valid");
             }
             return userName;
         }
         public static string emailValid()
         {
-            Console.WriteLine("Please enter your email address");
+            Console.WriteLine("\nPlease enter your email address");
             string userEmail = Console.ReadLine();
 
-            while (!Regex.IsMatch(userEmail, @"[A-z0-9]{5,30}(@)(.+){5,10}$"))
+            if (!Regex.IsMatch(userEmail, @"[A-z0-9]{5,30}(@)(.+){5,10}$"))
             {
                 Console.WriteLine("I'm sorry this is not a valid email address");
-                userEmail = Console.ReadLine();
             }
+            else Console.WriteLine("Email address is valid");
             return userEmail;
         }
         public static string phoneValid()
         {
-            Console.WriteLine("Please enter your phone number");
+            Console.WriteLine("\nPlease enter your phone number");
             string userPhone = Console.ReadLine();
 
-            while (!Regex.IsMatch(userPhone, @"^\(\d{3}\)-\d{3}-\d{4}$"))
+            if (!Regex.IsMatch(userPhone, @"^\(\d{3}\)-\d{3}-\d{4}$"))
             {
                 Console.WriteLine("I'm sorry, this is not a valid phone number");
-                userPhone = Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Phone number is valid");
             }
             return userPhone;
         }
         public static string dateValid()
         {
-            Console.WriteLine("Enter a date");
+            Console.WriteLine("\nEnter a date");
             string userDate = Console.ReadLine();
 
-            while (!Regex.IsMatch(userDate, @"^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d$"))
+            if (!Regex.IsMatch(userDate, @"^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d$"))
             {
                 Console.WriteLine("I'm sorry, this is not a valid date");
-                userDate = Console.ReadLine();
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Date is Valid");
+                Console.ReadLine();
             }
             return userDate;
         }
